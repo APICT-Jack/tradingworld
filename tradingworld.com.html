@@ -654,103 +654,111 @@
     </footer>
     
     <script>
-        // Tab functionality
-        const tabBtns = document.querySelectorAll('.tab-btn');
-        const tabContents = document.querySelectorAll('.tab-content');
-        
-        tabBtns.forEach(btn => {
-            btn.addEventListener('click', () => {
-                const tabId = btn.getAttribute('data-tab');
-                
-                // Remove active class from all buttons and contents
-                tabBtns.forEach(btn => btn.classList.remove('active'));
-                tabContents.forEach(content => content.classList.remove('active'));
-                
-                // Add active class to clicked button and corresponding content
-                btn.classList.add('active');
-                document.getElementById(tabId).classList.add('active');
-            });
-        });
-        
-        // Document detail functionality
-        const documentItems = document.querySelectorAll('.document-item');
-        const documentDetails = document.querySelectorAll('.document-detail');
-        
-        documentItems.forEach(item => {
-            item.addEventListener('click', () => {
-                const docId = item.getAttribute('data-doc');
-                
-                // Hide all document details
-                documentDetails.forEach(detail => detail.classList.remove('active'));
-                
-                // Show selected document detail
-                const detail = document.getElementById(docId);
-                if (detail) {
-                    detail.classList.add('active');
-                    
-                    // Scroll to the document detail
-                    detail.scrollIntoView({
-                        behavior: 'smooth'
-                    });
-                }
-            });
-        });
-        
-        // Search functionality
-        const searchIcon = document.querySelector('.search-icon');
-        const searchInput = document.querySelector('.search-input');
-        
-        searchIcon.addEventListener('click', () => {
-            searchInput.classList.toggle('active');
-            if (searchInput.classList.contains('active')) {
-                searchInput.focus();
-            }
-        });
-        
-        // Toggle document list visibility when clicking tab content header
-        const tabContentHeaders = document.querySelectorAll('.tab-content-header');
-        
-        tabContentHeaders.forEach(header => {
-            // Create toggle indicator if it doesn't exist
-            if (!header.querySelector('.toggle-indicator')) {
-                const indicator = document.createElement('span');
-                indicator.className = 'toggle-indicator';
-                indicator.innerHTML = '▼';
-                header.appendChild(indicator);
-            }
-            
-            header.addEventListener('click', function() {
-                const tabContent = this.closest('.tab-content');
-                let documentList = this.nextElementSibling;
-                
-                // If next sibling is not a document list, try to find one
-                if (!documentList || !documentList.classList.contains('document-list')) {
-                    documentList = tabContent.querySelector('.document-list');
-                }
-                
-                if (documentList) {
-                    documentList.classList.toggle('hidden');
-                    const indicator = this.querySelector('.toggle-indicator');
-                    if (indicator) {
-                        indicator.classList.toggle('collapsed');
-                    }
-                    
-                    // Remove pulse animation after first interaction
-                    this.classList.remove('attention-pulse');
-                }
-            });
-        });
-        
-        // Add hover effects to all interactive elements
-        const interactiveElements = document.querySelectorAll('.tab-btn, .document-item, .doc-btn, .search-icon');
-        interactiveElements.forEach(el => {
-            el.style.transition = 'all 0.3s ease';
-        });
-        
-        // Initialize all document lists as visible
-        document.querySelectorAll('.document-list').forEach(list => {
-            list.classList.remove('hidden');
-        });
-    </script>
+                // Tab functionality
+                const tabBtns = document.querySelectorAll('.tab-btn');
+                const tabContents = document.querySelectorAll('.tab-content');
+                
+                tabBtns.forEach(btn => {
+                    btn.addEventListener('click', () => {
+                        const tabId = btn.getAttribute('data-tab');
+                        
+                        // Remove active class from all buttons and contents
+                        tabBtns.forEach(btn => btn.classList.remove('active'));
+                        tabContents.forEach(content => content.classList.remove('active'));
+                        
+                        // Add active class to clicked button and corresponding content
+                        btn.classList.add('active');
+                        document.getElementById(tabId).classList.add('active');
+                    });
+                });
+                
+                // Document detail functionality
+                const documentItems = document.querySelectorAll('.document-item');
+                const documentDetails = document.querySelectorAll('.document-detail');
+                
+                documentItems.forEach(item => {
+                    item.addEventListener('click', () => {
+                        const docId = item.getAttribute('data-doc');
+                        
+                        // Hide all document details
+                        documentDetails.forEach(detail => detail.classList.remove('active'));
+                        
+                        // Show selected document detail
+                        const detail = document.getElementById(docId);
+                        if (detail) {
+                            detail.classList.add('active');
+                            
+                            // Scroll to the document detail
+                            detail.scrollIntoView({
+                                behavior: 'smooth'
+                            });
+                        }
+                    });
+                });
+                
+                // Search functionality
+                const searchIcon = document.querySelector('.search-icon');
+                const searchInput = document.querySelector('.search-input');
+                
+                searchIcon.addEventListener('click', () => {
+                    searchInput.classList.toggle('active');
+                    if (searchInput.classList.contains('active')) {
+                        searchInput.focus();
+                    }
+                });
+                
+                // Toggle document list visibility when clicking tab content header
+                const tabContentHeaders = document.querySelectorAll('.tab-content-header');
+                
+                tabContentHeaders.forEach(header => {
+                    // Create toggle indicator if it doesn't exist
+                    if (!header.querySelector('.toggle-indicator')) {
+                        const indicator = document.createElement('span');
+                        indicator.className = 'toggle-indicator';
+                        indicator.innerHTML = '▼';
+                        header.appendChild(indicator);
+                    }
+                    
+                    header.addEventListener('click', function() {
+                        const tabContent = this.closest('.tab-content');
+                        let documentList = this.nextElementSibling;
+                        
+                        // If next sibling is not a document list, try to find one
+                        if (!documentList || !documentList.classList.contains('document-list')) {
+                            documentList = tabContent.querySelector('.document-list');
+                        }
+                        
+                        if (documentList) {
+                            documentList.classList.toggle('hidden');
+                            const indicator = this.querySelector('.toggle-indicator');
+                            if (indicator) {
+                                indicator.classList.toggle('collapsed');
+                            }
+                            
+                            // **NEW CODE TO HIDE OPENED DESCRIPTIONS**
+                            if (documentList.classList.contains('hidden')) {
+                                const activeDetail = tabContent.querySelector('.document-detail.active');
+                                if (activeDetail) {
+                                    activeDetail.classList.remove('active');
+                                }
+                            }
+                            
+                            // Remove pulse animation after first interaction
+                            this.classList.remove('attention-pulse');
+                        }
+                    });
+                });
+                
+                // Add hover effects to all interactive elements
+                const interactiveElements = document.querySelectorAll('.tab-btn, .document-item, .doc-btn, .search-icon');
+                interactiveElements.forEach(el => {
+                    el.style.transition = 'all 0.3s ease';
+                });
+                
+                // Initialize all document lists as visible
+                document.querySelectorAll('.document-list').forEach(list => {
+                    list.classList.remove('hidden');
+                });
+            </script>
 </body>
 </html>
