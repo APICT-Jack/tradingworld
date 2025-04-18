@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,19 +13,19 @@
             box-sizing: border-box;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
-        
+
         body {
             background-color: #f5f5f5;
             color: #333;
             line-height: 1.6;
         }
-        
+
         .container {
             max-width: 1200px;
             margin: 0 auto;
             padding: 20px;
         }
-        
+
         /* Header Styles */
         header {
             background-color: #2c3e50;
@@ -34,29 +35,36 @@
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
             animation: fadeIn 1s ease-in-out;
         }
-        
+
         @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(-20px); }
-            to { opacity: 1; transform: translateY(0); }
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
-        
+
         h1 {
             font-size: 2.5rem;
             margin-bottom: 10px;
         }
-        
+
         /* Search Styles */
         .search-container {
             display: flex;
             justify-content: flex-end;
             margin: 15px 0;
         }
-        
+
         .search-box {
             display: flex;
             align-items: center;
         }
-        
+
         .search-input {
             width: 0;
             padding: 0;
@@ -66,7 +74,7 @@
             opacity: 0;
             margin-right: -30px;
         }
-        
+
         .search-input.active {
             width: 200px;
             padding: 8px 15px;
@@ -74,19 +82,19 @@
             margin-right: 10px;
             border: 1px solid #ddd;
         }
-        
+
         .search-icon {
             font-size: 1.2rem;
             color: #555;
             cursor: pointer;
             transition: all 0.3s ease;
         }
-        
+
         .search-icon:hover {
             color: #2c3e50;
             transform: scale(1.1);
         }
-        
+
         /* Tab Navigation */
         .tabs {
             display: flex;
@@ -94,7 +102,7 @@
             margin: 30px 0;
             border-bottom: 1px solid #ddd;
         }
-        
+
         .tab-btn {
             padding: 12px 30px;
             background: none;
@@ -105,16 +113,16 @@
             position: relative;
             transition: all 0.3s ease;
         }
-        
+
         .tab-btn:hover {
             color: #2c3e50;
         }
-        
+
         .tab-btn.active {
             color: #2c3e50;
             font-weight: bold;
         }
-        
+
         .tab-btn.active::after {
             content: '';
             position: absolute;
@@ -125,12 +133,17 @@
             background-color: #3498db;
             animation: underline 0.3s ease-out;
         }
-        
+
         @keyframes underline {
-            from { transform: scaleX(0); }
-            to { transform: scaleX(1); }
+            from {
+                transform: scaleX(0);
+            }
+
+            to {
+                transform: scaleX(1);
+            }
         }
-        
+
         /* Tab Content */
         .tab-content {
             display: none;
@@ -140,7 +153,7 @@
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
             animation: slideUp 0.5s ease-out;
         }
-        
+
         .tab-content-header {
             margin-bottom: 20px;
             cursor: pointer;
@@ -151,31 +164,38 @@
             position: relative;
             padding-right: 40px;
         }
-        
+
         .tab-content-header:hover {
             background-color: #e9ecef;
             transform: translateY(-2px);
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
-        
+
         .tab-content-header h2 {
             color: #2c3e50;
             transition: color 0.3s ease;
         }
-        
+
         .tab-content-header:hover h2 {
             color: #3498db;
         }
-        
+
         @keyframes slideUp {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
-        
+
         .tab-content.active {
             display: block;
         }
-        
+
         /* Document List */
         .document-list {
             list-style: none;
@@ -183,14 +203,14 @@
             overflow: hidden;
             max-height: 1000px;
         }
-        
+
         .document-list.hidden {
             max-height: 0;
             margin: 0;
             padding: 0;
             opacity: 0;
         }
-        
+
         .document-item {
             padding: 15px;
             border-bottom: 1px solid #eee;
@@ -199,28 +219,28 @@
             display: flex;
             align-items: center;
         }
-        
+
         .document-item::before {
             content: "→";
             margin-right: 10px;
             color: #3498db;
             transition: all 0.3s ease;
         }
-        
+
         .document-item:hover {
             background-color: #f9f9f9;
             transform: translateX(5px);
         }
-        
+
         .document-item:hover::before {
             transform: translateX(5px);
             color: #2c3e50;
         }
-        
+
         .document-item:last-child {
             border-bottom: none;
         }
-        
+
         /* Document Detail */
         .document-detail {
             display: none;
@@ -230,19 +250,19 @@
             border-radius: 8px;
             animation: fadeIn 0.5s ease-out;
         }
-        
+
         .document-detail.active {
             display: flex;
             flex-direction: column;
             gap: 20px;
         }
-        
+
         .document-header {
             display: flex;
             align-items: flex-start;
             gap: 20px;
         }
-        
+
         .document-icon {
             font-size: 3rem;
             color: #3498db;
@@ -252,17 +272,17 @@
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
             flex-shrink: 0;
         }
-        
+
         .document-info {
             flex-grow: 1;
         }
-        
+
         .document-info h3 {
             margin-bottom: 10px;
             color: #2c3e50;
             font-size: 1.5rem;
         }
-        
+
         /* Buttons Section */
         .document-buttons {
             display: flex;
@@ -270,7 +290,7 @@
             margin-top: 15px;
             flex-wrap: wrap;
         }
-        
+
         .doc-btn {
             padding: 10px 20px;
             border: none;
@@ -283,44 +303,44 @@
             gap: 8px;
             text-decoration: none;
         }
-        
+
         .doc-btn i {
             font-size: 1.1rem;
         }
-        
+
         .doc-btn-primary {
             background-color: #3498db;
             color: white;
         }
-        
+
         .doc-btn-primary:hover {
             background-color: #2980b9;
             transform: translateY(-2px);
             box-shadow: 0 4px 8px rgba(41, 128, 185, 0.3);
         }
-        
+
         .doc-btn-secondary {
             background-color: #2ecc71;
             color: white;
         }
-        
+
         .doc-btn-secondary:hover {
             background-color: #27ae60;
             transform: translateY(-2px);
             box-shadow: 0 4px 8px rgba(39, 174, 96, 0.3);
         }
-        
+
         .doc-btn-tertiary {
             background-color: #e74c3c;
             color: white;
         }
-        
+
         .doc-btn-tertiary:hover {
             background-color: #c0392b;
             transform: translateY(-2px);
             box-shadow: 0 4px 8px rgba(231, 76, 60, 0.3);
         }
-        
+
         /* Stats Section */
         .document-stats {
             display: flex;
@@ -329,31 +349,32 @@
             color: #7f8c8d;
             font-size: 0.9rem;
         }
-        
-        .download-count, .rating {
+
+        .download-count,
+        .rating {
             display: flex;
             align-items: center;
             gap: 5px;
         }
-        
+
         /* Rating Stars */
         .stars {
             color: #f39c12;
             font-size: 1.1rem;
         }
-        
+
         /* Comments Section */
         .comments-section {
             margin-top: 30px;
             border-top: 1px solid #eee;
             padding-top: 20px;
         }
-        
+
         .comments-section h4 {
             margin-bottom: 15px;
             color: #2c3e50;
         }
-        
+
         .comment-form textarea {
             width: 100%;
             padding: 10px;
@@ -363,7 +384,7 @@
             resize: vertical;
             min-height: 80px;
         }
-        
+
         .comment-form button {
             background-color: #3498db;
             color: white;
@@ -373,23 +394,23 @@
             cursor: pointer;
             transition: background-color 0.3s;
         }
-        
+
         .comment-form button:hover {
             background-color: #2980b9;
         }
-        
+
         .comments-list {
             margin-top: 20px;
         }
-        
+
         .comment {
             padding: 15px;
             background-color: white;
             border-radius: 5px;
             margin-bottom: 15px;
-            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
         }
-        
+
         .comment-header {
             display: flex;
             justify-content: space-between;
@@ -397,7 +418,7 @@
             font-size: 0.9rem;
             color: #7f8c8d;
         }
-        
+
         /* Footer */
         footer {
             text-align: center;
@@ -406,7 +427,7 @@
             color: #777;
             font-size: 0.9rem;
         }
-        
+
         /* Toggle Indicator */
         .toggle-indicator {
             position: absolute;
@@ -417,23 +438,23 @@
             font-size: 1.2rem;
             color: #3498db;
         }
-        
+
         .toggle-indicator.collapsed {
             transform: translateY(-50%) rotate(-90deg);
         }
-        
-        
+
+
         .attention-pulse {
             animation: pulse 2s infinite;
         }
-        
+
         /* Chevron for document items */
         .document-chevron {
             margin-left: auto;
             color: #7f8c8d;
             transition: all 0.3s ease;
         }
-        
+
         .document-item:hover .document-chevron {
             color: #3498db;
             transform: translateX(3px);
@@ -441,6 +462,7 @@
     </style>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
+
 <body>
     <header>
         <div class="container">
@@ -448,7 +470,7 @@
             <p>Connect With all the desire tools to muster the trading Revolution</p>
         </div>
     </header>
-    
+
     <div class="container">
         <!-- Search Box -->
         <div class="search-container">
@@ -457,20 +479,21 @@
                 <i class="fas fa-search search-icon"></i>
             </div>
         </div>
-        
+
         <div class="tabs">
             <button class="tab-btn active" data-tab="library">Library</button>
             <button class="tab-btn" data-tab="school">University</button>
-            
+
         </div>
-        
+
         <div class="tab-content active" id="library">
             <div class="tab-content-header attention-pulse">
                 <h2>Alpha Phoenix Intelligent Computer Technology Trend Analysis</h2>
-                <p>Explore our curated library of expert trading resources, featuring comprehensive documents, guides, and tools focused on trend analysis.</p>
+                <p>Explore our curated library of expert trading resources, featuring comprehensive documents, guides,
+                    and tools focused on trend analysis.</p>
                 <span class="toggle-indicator">▼</span>
             </div>
-            
+
             <ul class="document-list">
                 <li class="document-item" data-doc="apict-chart-patterns">
                     APICT Chart Patterns
@@ -489,27 +512,31 @@
                     <span class="document-chevron"><i class="fas fa-chevron-right"></i></span>
                 </li>
             </ul>
-            
+
             <div class="document-detail" id="apict-chart-patterns">
                 <div class="document-header">
                     <div class="document-icon">📊</div>
                     <div class="document-info">
                         <h3>APICT Chart Patterns</h3>
-                        <p>Learn how chart patterns work and discover how the APICT Chart Pattern tool can automatically detect them with speed and precision. With just a click, you'll receive a fully analyzed chart, complete with pattern recognition and smart insights to support your trading decisions.</p>
-                        
+                        <p>Learn how chart patterns work and discover how the APICT Chart Pattern tool can automatically
+                            detect them with speed and precision. With just a click, you'll receive a fully analyzed
+                            chart, complete with pattern recognition and smart insights to support your trading
+                            decisions.</p>
+
                         <div class="document-buttons">
-                            <a href="https://www.mql5.com/en/market/product/104267?source=Site+Profile+Seller" class="doc-btn doc-btn-primary">
+                            <a href="https://www.mql5.com/en/market/product/104267?source=Site+Profile+Seller"
+                                class="doc-btn doc-btn-primary">
                                 <i class="fas fa-download"></i> MetaTrader 5
                             </a>
-                            <a href="https://drive.google.com/uc?export=download&id=1IoUhLtsGG0mY8dQfBPK8Hl39RwJ5GI5f" 
-                               class="doc-btn doc-btn-secondary">
-                               <i class="fas fa-file-pdf"></i> Download PDF
+                            <a href="https://drive.google.com/uc?export=download&id=1IoUhLtsGG0mY8dQfBPK8Hl39RwJ5GI5f"
+                                class="doc-btn doc-btn-secondary">
+                                <i class="fas fa-file-pdf"></i> Download PDF
                             </a>
                             <a href="https://www.youtube.com/@alphaphoenixict" class="doc-btn doc-btn-tertiary">
                                 <i class="fas fa-play-circle"></i> Video Tutorial
                             </a>
                         </div>
-                        
+
                         <div class="document-stats">
                             <div class="download-count">
                                 <i class="fas fa-download"></i> 1,245 downloads
@@ -527,7 +554,7 @@
                         </div>
                     </div>
                 </div>
-                
+
                 <div class="comments-section">
                     <h4>User Comments</h4>
                     <div class="comment-form">
@@ -540,36 +567,39 @@
                                 <span>John D.</span>
                                 <span>2 days ago</span>
                             </div>
-                            <p>This tool has completely transformed my chart analysis. The pattern recognition is incredibly accurate!</p>
+                            <p>This tool has completely transformed my chart analysis. The pattern recognition is
+                                incredibly accurate!</p>
                         </div>
                         <div class="comment">
                             <div class="comment-header">
                                 <span>Sarah K.</span>
                                 <span>1 week ago</span>
                             </div>
-                            <p>The video tutorial was very helpful in understanding how to use all the advanced features.</p>
+                            <p>The video tutorial was very helpful in understanding how to use all the advanced
+                                features.</p>
                         </div>
                     </div>
                 </div>
             </div>
-            
+
             <!-- Other document details remain the same -->
         </div>
-        
+
         <div class="tab-content" id="school">
             <div class="tab-content-header attention-pulse">
                 <h2>APICT Public University</h2>
                 <p>Comprehensive educational courses and learning materials for all skill levels.</p>
                 <span class="toggle-indicator">▼</span>
             </div>
-            
+
             <ul class="document-list">
                 <div class="tab-content-header">
                     <h2>APICT MetaQuote Language 5 Coding Class</h2>
-                    <p>Learn to develop your own trading indicators and expert advisors with our comprehensive MQL5 programming courses.</p>
+                    <p>Learn to develop your own trading indicators and expert advisors with our comprehensive MQL5
+                        programming courses.</p>
                     <span class="toggle-indicator">▼</span>
                 </div>
-                
+
                 <ul class="document-list">
                     <li class="document-item" data-doc="mql5-intro">
                         Introduction to MQL5 Platform
@@ -592,27 +622,28 @@
                         <span class="document-chevron"><i class="fas fa-chevron-right"></i></span>
                     </li>
                 </ul>
-                
+
                 <div class="document-detail" id="mql5-intro">
                     <div class="document-header">
                         <div class="document-icon">💻</div>
                         <div class="document-info">
                             <h3>Introduction to MQL5 Platform</h3>
-                            <p>Get started with MQL5 programming by learning about the MetaEditor development environment, basic program structure, and how to create your first simple indicator.</p>
-                            
+                            <p>Get started with MQL5 programming by learning about the MetaEditor development
+                                environment, basic program structure, and how to create your first simple indicator.</p>
+
                             <div class="document-buttons">
                                 <button class="doc-btn doc-btn-primary">
                                     <i class="fas fa-question-circle"></i> Quiz
                                 </button>
-                                <a href="https://drive.google.com/uc?export=download&id=YOUR_FILE_ID" 
-                                   class="doc-btn doc-btn-secondary">
-                                   <i class="fas fa-file-pdf"></i> Download PDF
+                                <a href="https://drive.google.com/uc?export=download&id=YOUR_FILE_ID"
+                                    class="doc-btn doc-btn-secondary">
+                                    <i class="fas fa-file-pdf"></i> Download PDF
                                 </a>
                                 <button class="doc-btn doc-btn-tertiary">
                                     <i class="fas fa-play-circle"></i> Video Tutorial
                                 </button>
                             </div>
-                            
+
                             <div class="document-stats">
                                 <div class="download-count">
                                     <i class="fas fa-download"></i> 892 downloads
@@ -630,7 +661,7 @@
                             </div>
                         </div>
                     </div>
-                    
+
                     <div class="comments-section">
                         <h4>User Comments</h4>
                         <div class="comment-form">
@@ -641,53 +672,53 @@
                 </div>
             </ul>
         </div>
-        
-       
-           
-        </div>
+
+
+
     </div>
-    
+    </div>
+
     <footer>
         <div class="container">
             <p>&copy; 2023 APICT Trading Library | FXIFE. All rights reserved.</p>
         </div>
     </footer>
-    
+
     <script>
         // Tab functionality
         const tabBtns = document.querySelectorAll('.tab-btn');
         const tabContents = document.querySelectorAll('.tab-content');
-        
+
         tabBtns.forEach(btn => {
             btn.addEventListener('click', () => {
                 const tabId = btn.getAttribute('data-tab');
-                
+
                 // Remove active class from all buttons and contents
                 tabBtns.forEach(btn => btn.classList.remove('active'));
                 tabContents.forEach(content => content.classList.remove('active'));
-                
+
                 // Add active class to clicked button and corresponding content
                 btn.classList.add('active');
                 document.getElementById(tabId).classList.add('active');
             });
         });
-        
+
         // Document detail functionality
         const documentItems = document.querySelectorAll('.document-item');
         const documentDetails = document.querySelectorAll('.document-detail');
-        
+
         documentItems.forEach(item => {
             item.addEventListener('click', () => {
                 const docId = item.getAttribute('data-doc');
-                
+
                 // Hide all document details
                 documentDetails.forEach(detail => detail.classList.remove('active'));
-                
+
                 // Show selected document detail
                 const detail = document.getElementById(docId);
                 if (detail) {
                     detail.classList.add('active');
-                    
+
                     // Scroll to the document detail
                     detail.scrollIntoView({
                         behavior: 'smooth'
@@ -695,21 +726,21 @@
                 }
             });
         });
-        
+
         // Search functionality
         const searchIcon = document.querySelector('.search-icon');
         const searchInput = document.querySelector('.search-input');
-        
+
         searchIcon.addEventListener('click', () => {
             searchInput.classList.toggle('active');
             if (searchInput.classList.contains('active')) {
                 searchInput.focus();
             }
         });
-        
+
         // Toggle document list visibility when clicking tab content header
         const tabContentHeaders = document.querySelectorAll('.tab-content-header');
-        
+
         tabContentHeaders.forEach(header => {
             // Create toggle indicator if it doesn't exist
             if (!header.querySelector('.toggle-indicator')) {
@@ -718,39 +749,48 @@
                 indicator.innerHTML = '▼';
                 header.appendChild(indicator);
             }
-            
-            header.addEventListener('click', function() {
+
+            header.addEventListener('click', function () {
                 const tabContent = this.closest('.tab-content');
                 let documentList = this.nextElementSibling;
-                
+
                 // If next sibling is not a document list, try to find one
                 if (!documentList || !documentList.classList.contains('document-list')) {
                     documentList = tabContent.querySelector('.document-list');
                 }
-                
+
                 if (documentList) {
                     documentList.classList.toggle('hidden');
                     const indicator = this.querySelector('.toggle-indicator');
                     if (indicator) {
                         indicator.classList.toggle('collapsed');
                     }
-                    
+
+                    // **NEW CODE TO HIDE OPENED DESCRIPTIONS**
+                    if (documentList.classList.contains('hidden')) {
+                        const activeDetail = tabContent.querySelector('.document-detail.active');
+                        if (activeDetail) {
+                            activeDetail.classList.remove('active');
+                        }
+                    }
+
                     // Remove pulse animation after first interaction
                     this.classList.remove('attention-pulse');
                 }
             });
         });
-        
+
         // Add hover effects to all interactive elements
         const interactiveElements = document.querySelectorAll('.tab-btn, .document-item, .doc-btn, .search-icon');
         interactiveElements.forEach(el => {
             el.style.transition = 'all 0.3s ease';
         });
-        
+
         // Initialize all document lists as visible
         document.querySelectorAll('.document-list').forEach(list => {
             list.classList.remove('hidden');
         });
     </script>
 </body>
+
 </html>
